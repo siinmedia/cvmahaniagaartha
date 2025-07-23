@@ -1,45 +1,100 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Star } from 'lucide-react';
+import { ArrowRight, Star, X, Package, Users, TrendingUp, MessageCircle } from 'lucide-react';
+
+interface Product {
+  name: string;
+  price: string;
+  image: string;
+  heroImage: string;
+  category: string;
+  rating: number;
+  description: string;
+  features: string[];
+  includes: string[];
+  targetMarket: string;
+  estimatedRevenue: string;
+  whatsappMessage: string;
+}
 
 const FeaturedProducts = () => {
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+
   const products = [
     {
       name: 'Mybestea',
       price: 'Rp 2.5 Juta',
       image: 'https://images.pexels.com/photos/1346155/pexels-photo-1346155.jpeg?auto=compress&cs=tinysrgb&w=800',
+      heroImage: 'https://images.pexels.com/photos/1346155/pexels-photo-1346155.jpeg?auto=compress&cs=tinysrgb&w=1200',
       category: 'Minuman',
       rating: 4.9,
-      description: 'Paket usaha minuman teh premium dengan booth modern'
+      description: 'Paket usaha minuman teh premium dengan booth modern dan branding menarik. Cocok untuk area perkantoran, kampus, dan mall.',
+      features: ['Booth portable modern', 'Mesin brewing otomatis', 'Kemasan branded premium', 'Resep rahasia 15 varian'],
+      includes: ['Booth 2x2 meter', 'Peralatan lengkap', 'Bahan baku 1 bulan', 'Training barista', 'Marketing kit'],
+      targetMarket: 'Mahasiswa, pekerja kantoran, pengunjung mall',
+      estimatedRevenue: 'Rp 8-15 juta/bulan',
+      whatsappMessage: 'Halo, saya tertarik dengan paket usaha Mybestea. Bisa minta info lengkapnya?'
     },
     {
       name: 'You Need Mie',
       price: 'Rp 3.2 Juta',
       image: 'https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?auto=compress&cs=tinysrgb&w=800',
+      heroImage: 'https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?auto=compress&cs=tinysrgb&w=1200',
       category: 'Makanan',
       rating: 4.8,
-      description: 'Franchise mie instan dengan peralatan lengkap'
+      description: 'Franchise mie instan premium dengan topping melimpah dan cita rasa yang tak terlupakan. Konsep fast food modern.',
+      features: ['Resep mie signature', 'Topping premium', 'Packaging unik', 'Sistem operasional mudah'],
+      includes: ['Booth 2.5x2.5 meter', 'Kompor gas + tabung', 'Peralatan masak', 'Bahan baku 1 bulan', 'SOP lengkap'],
+      targetMarket: 'Semua kalangan, terutama anak muda dan keluarga',
+      estimatedRevenue: 'Rp 10-18 juta/bulan',
+      whatsappMessage: 'Halo, saya ingin tahu lebih detail tentang franchise You Need Mie. Mohon infonya.'
     },
     {
       name: 'Kopi Ibukota',
       price: 'Rp 4.5 Juta',
       image: 'https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&cs=tinysrgb&w=800',
+      heroImage: 'https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&cs=tinysrgb&w=1200',
       category: 'Minuman',
       rating: 4.9,
-      description: 'Coffee shop starter kit dengan mesin espresso'
+      description: 'Coffee shop premium dengan konsep modern dan kualitas biji kopi terbaik. Dilengkapi mesin espresso profesional.',
+      features: ['Mesin espresso semi-auto', 'Biji kopi premium', 'Menu signature drinks', 'Interior modern'],
+      includes: ['Booth 3x3 meter', 'Mesin espresso', 'Grinder profesional', 'Bahan baku 2 bulan', 'Training barista'],
+      targetMarket: 'Coffee lovers, pekerja kantoran, mahasiswa',
+      estimatedRevenue: 'Rp 15-25 juta/bulan',
+      whatsappMessage: 'Halo, saya ingin memulai bisnis kopi dengan paket Kopi Ibukota. Mohon info lengkapnya.'
     },
     {
       name: 'Kentang Gantenk',
       price: 'Rp 2.8 Juta',
       image: 'https://images.pexels.com/photos/1583884/pexels-photo-1583884.jpeg?auto=compress&cs=tinysrgb&w=800',
+      heroImage: 'https://images.pexels.com/photos/1583884/pexels-photo-1583884.jpeg?auto=compress&cs=tinysrgb&w=1200',
       category: 'Snack',
       rating: 4.7,
-      description: 'Paket usaha kentang goreng dengan bumbu rahasia'
+      description: 'Kentang goreng crispy dengan bumbu rahasia yang bikin nagih. Snack favorit anak muda dengan harga terjangkau.',
+      features: ['Kentang premium', 'Bumbu rahasia 8 varian', 'Tekstur crispy tahan lama', 'Packaging menarik'],
+      includes: ['Booth portable', 'Deep fryer', 'Peralatan masak', 'Bahan baku 1 bulan', 'Resep bumbu'],
+      targetMarket: 'Anak muda, mahasiswa, keluarga',
+      estimatedRevenue: 'Rp 8-14 juta/bulan',
+      whatsappMessage: 'Halo, saya ingin memulai usaha Kentang Gantenk. Mohon info paket lengkapnya.'
     }
   ];
 
+  const openWhatsApp = (message: string) => {
+    const phoneNumber = '6281234567890'; // Replace with actual WhatsApp number
+    const encodedMessage = encodeURIComponent(message);
+    window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+  };
+
+  const openProductDetail = (product: Product) => {
+    setSelectedProduct(product);
+  };
+
+  const closeProductDetail = () => {
+    setSelectedProduct(null);
+  };
+
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-white" id="featured-products">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in">
@@ -105,8 +160,11 @@ const FeaturedProducts = () => {
                       </p>
                     </div>
 
-                    <button className="bg-white/10 backdrop-blur-sm border border-white/30 text-white px-3 py-2 sm:px-4 sm:py-2 md:px-6 md:py-3 rounded-full hover:bg-white hover:text-purple-primary transition-all duration-300 font-semibold flex items-center group-hover:scale-105 text-xs sm:text-sm md:text-base">
-                      Lihat Detail
+                    <button 
+                      onClick={() => openProductDetail(product)}
+                      className="bg-white/10 backdrop-blur-sm border border-white/30 text-white px-3 py-2 sm:px-4 sm:py-2 md:px-6 md:py-3 rounded-full hover:bg-white hover:text-purple-primary transition-all duration-300 font-semibold flex items-center group-hover:scale-105 text-xs sm:text-sm md:text-base"
+                    >
+                      Lihat Detailnya
                       <ArrowRight className="ml-1 w-3 h-3 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />
                     </button>
                   </div>
@@ -126,6 +184,105 @@ const FeaturedProducts = () => {
           </Link>
         </div>
       </div>
+
+      {/* Product Detail Modal */}
+      {selectedProduct && (
+        <div className="fixed inset-0 bg-black/50 z-50 flex items-start justify-center p-2 sm:p-4 overflow-y-auto">
+          <div className="bg-white rounded-xl sm:rounded-2xl w-full max-w-4xl my-2 sm:my-4 max-h-[98vh] sm:max-h-[95vh] overflow-y-auto">
+            {/* Modal Header */}
+            <div className="relative h-40 sm:h-48 md:h-64 lg:h-80">
+              <img
+                src={selectedProduct.heroImage}
+                alt={selectedProduct.name}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              <button
+                onClick={closeProductDetail}
+                className="absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 bg-white/20 backdrop-blur-sm rounded-full p-1.5 sm:p-2 hover:bg-white/30 transition-colors"
+              >
+                <X className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white" />
+              </button>
+              <div className="absolute bottom-2 left-2 sm:bottom-3 sm:left-3 md:bottom-6 md:left-6 text-white">
+                <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-1 sm:mb-2">{selectedProduct.name}</h2>
+                <div className="flex items-center space-x-2 sm:space-x-3 md:space-x-4">
+                  <span className="bg-purple-primary px-2 py-0.5 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm font-semibold">
+                    {selectedProduct.category}
+                  </span>
+                  <div className="flex items-center space-x-1">
+                    <Star className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400 fill-current" />
+                    <span className="text-xs sm:text-sm font-semibold">{selectedProduct.rating}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Modal Content */}
+            <div className="p-3 sm:p-4 md:p-6 lg:p-8">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
+                {/* Left Column */}
+                <div className="space-y-4 sm:space-y-6">
+                  <div>
+                    <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900 mb-2 sm:mb-3">Deskripsi</h3>
+                    <p className="text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed">{selectedProduct.description}</p>
+                  </div>
+
+                  <div>
+                    <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900 mb-2 sm:mb-3">Keunggulan</h3>
+                    <ul className="space-y-2">
+                      {selectedProduct.features.map((feature, index) => (
+                        <li key={index} className="flex items-start text-xs sm:text-sm md:text-base text-gray-600">
+                          <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-purple-primary rounded-full mr-2 sm:mr-3 mt-1.5 sm:mt-2 flex-shrink-0"></div>
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900 mb-2 sm:mb-3">Target Market</h3>
+                    <p className="text-xs sm:text-sm md:text-base text-gray-600">{selectedProduct.targetMarket}</p>
+                  </div>
+                </div>
+
+                {/* Right Column */}
+                <div className="space-y-4 sm:space-y-6">
+                  <div>
+                    <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900 mb-2 sm:mb-3">Paket Termasuk</h3>
+                    <ul className="space-y-2">
+                      {selectedProduct.includes.map((item, index) => (
+                        <li key={index} className="flex items-start text-xs sm:text-sm md:text-base text-gray-600">
+                          <Package className="w-3 h-3 sm:w-4 sm:h-4 text-purple-primary mr-2 sm:mr-3 mt-0.5 flex-shrink-0" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="bg-purple-50 p-3 sm:p-4 md:p-6 rounded-xl">
+                    <div className="flex items-center justify-between mb-3 sm:mb-4">
+                      <span className="text-xs sm:text-sm md:text-base text-gray-600">Investasi</span>
+                      <span className="text-base sm:text-lg md:text-2xl font-bold text-purple-primary">{selectedProduct.price}</span>
+                    </div>
+                    <div className="flex items-center justify-between mb-4 sm:mb-6">
+                      <span className="text-xs sm:text-sm md:text-base text-gray-600">Estimasi Omset</span>
+                      <span className="text-xs sm:text-sm md:text-lg font-semibold text-green-600">{selectedProduct.estimatedRevenue}</span>
+                    </div>
+                    
+                    <button
+                      onClick={() => openWhatsApp(selectedProduct.whatsappMessage)}
+                      className="w-full bg-green-500 hover:bg-green-600 text-white px-3 py-2 sm:px-4 sm:py-3 md:px-6 md:py-4 rounded-full transition-all duration-300 font-semibold text-xs sm:text-sm md:text-base flex items-center justify-center"
+                    >
+                      <MessageCircle className="mr-1 sm:mr-2 w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5" />
+                      Konsultasi via WhatsApp
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

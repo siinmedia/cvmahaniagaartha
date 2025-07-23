@@ -1,29 +1,47 @@
 import React from 'react';
-import { ShoppingBag, MapPin, Phone, Mail, Instagram, Facebook, Youtube } from 'lucide-react';
+import { ShoppingBag, MapPin, Phone, Mail, Instagram, Facebook, Youtube, MessageCircle } from 'lucide-react';
 
 const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white">
       {/* Main Footer */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {/* Company Info */}
-          <div className="sm:col-span-2 lg:col-span-2">
+          <div className="lg:col-span-1">
             <div className="flex items-center space-x-3 mb-6">
               <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-purple-primary to-purple-600 rounded-lg flex items-center justify-center">
                 <ShoppingBag className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white" />
               </div>
               <span className="text-lg sm:text-xl md:text-2xl font-bold">Maha Niaga Artha</span>
             </div>
-            <p className="text-sm sm:text-base text-gray-400 leading-relaxed mb-4 sm:mb-6 max-w-md">
-              Partner terpercaya untuk memulai usaha Anda. Kami menyediakan paket usaha lengkap 
-              dengan booth, branding, dan support penuh untuk kesuksesan bisnis Anda.
+            <p className="text-sm sm:text-base text-gray-400 leading-relaxed mb-6">
+              Partner terpercaya untuk memulai usaha kuliner Anda dengan paket lengkap dan support penuh.
             </p>
             
-            {/* Contact Info */}
-            <div className="space-y-2 sm:space-y-3">
-              <div className="flex items-center space-x-3">
-                <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-purple-primary flex-shrink-0" />
+            {/* Social Media */}
+            <div>
+              <h4 className="text-base sm:text-lg font-semibold mb-4">Ikuti Kami</h4>
+              <div className="flex space-x-4">
+                <a href="#" className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-800 hover:bg-purple-primary rounded-full flex items-center justify-center transition-colors duration-200">
+                  <Instagram className="w-4 h-4 sm:w-5 sm:h-5" />
+                </a>
+                <a href="#" className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-800 hover:bg-purple-primary rounded-full flex items-center justify-center transition-colors duration-200">
+                  <Facebook className="w-4 h-4 sm:w-5 sm:h-5" />
+                </a>
+                <a href="#" className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-800 hover:bg-purple-primary rounded-full flex items-center justify-center transition-colors duration-200">
+                  <Youtube className="w-4 h-4 sm:w-5 sm:h-5" />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Contact Info */}
+          <div>
+            <h3 className="text-base sm:text-lg font-semibold mb-4 sm:mb-6">Kontak Kami</h3>
+            <div className="space-y-3">
+              <div className="flex items-start space-x-3">
+                <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-purple-primary flex-shrink-0 mt-0.5" />
                 <span className="text-xs sm:text-sm md:text-base text-gray-400">Jl. Merdeka No. 123, Jakarta Pusat 10110</span>
               </div>
               <div className="flex items-center space-x-3">
@@ -37,64 +55,30 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Quick Action */}
           <div>
-            <h3 className="text-base sm:text-lg font-semibold mb-4 sm:mb-6">Menu Utama</h3>
-            <ul className="space-y-2 sm:space-y-3">
-              {['Beranda', 'Produk', 'Tentang Kami', 'Testimonial', 'Kontak'].map((item) => (
-                <li key={item}>
-                  <a href={`#${item.toLowerCase().replace(' ', '-')}`} className="text-xs sm:text-sm md:text-base text-gray-400 hover:text-white transition-colors duration-200">
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Products */}
-          <div>
-            <h3 className="text-base sm:text-lg font-semibold mb-4 sm:mb-6">Produk Populer</h3>
-            <ul className="space-y-2 sm:space-y-3">
-              {['Mybestea', 'You Need Mie', 'Kopi Ibukota', 'Kentang Gantenk', 'Lihat Semua'].map((item) => (
-                <li key={item}>
-                  <a href="#produk" className="text-xs sm:text-sm md:text-base text-gray-400 hover:text-white transition-colors duration-200">
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        {/* Social Media & Newsletter */}
-        <div className="border-t border-gray-800 mt-12 pt-8">
-          <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
-            <div>
-              <h4 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Ikuti Kami</h4>
-              <div className="flex space-x-4">
-                <a href="#" className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-800 hover:bg-purple-primary rounded-full flex items-center justify-center transition-colors duration-200">
-                  <Instagram className="w-4 h-4 sm:w-5 sm:h-5" />
-                </a>
-                <a href="#" className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-800 hover:bg-purple-primary rounded-full flex items-center justify-center transition-colors duration-200">
-                  <Facebook className="w-4 h-4 sm:w-5 sm:h-5" />
-                </a>
-                <a href="#" className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-800 hover:bg-purple-primary rounded-full flex items-center justify-center transition-colors duration-200">
-                  <Youtube className="w-4 h-4 sm:w-5 sm:h-5" />
-                </a>
-              </div>
-            </div>
-
-            <div className="text-center sm:text-right w-full sm:w-auto">
-              <h4 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Newsletter</h4>
-              <div className="flex max-w-sm mx-auto sm:mx-0">
-                <input
-                  type="email"
-                  placeholder="Masukkan email Anda"
-                  className="flex-1 px-3 py-2 sm:px-4 sm:py-2 bg-gray-800 border border-gray-700 rounded-l-lg focus:outline-none focus:border-purple-primary text-white text-sm"
-                />
-                <button className="bg-purple-primary hover:bg-purple-700 px-3 py-2 sm:px-4 sm:py-2 rounded-r-lg transition-colors duration-200 font-semibold text-sm">
-                  Subscribe
-                </button>
+            <h3 className="text-base sm:text-lg font-semibold mb-4 sm:mb-6">Mulai Sekarang</h3>
+            <p className="text-xs sm:text-sm text-gray-400 mb-4">
+              Konsultasi gratis untuk memilih paket usaha yang tepat untuk Anda.
+            </p>
+            <button 
+              onClick={() => {
+                const phoneNumber = '6281234567890';
+                const message = encodeURIComponent('Halo, saya ingin konsultasi untuk memilih paket usaha yang tepat.');
+                window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+              }}
+              className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 sm:px-6 sm:py-3 rounded-full transition-all duration-300 font-semibold text-xs sm:text-sm flex items-center"
+            >
+              <MessageCircle className="mr-2 w-4 h-4" />
+              Konsultasi Gratis
+            </button>
+            
+            <div className="mt-6">
+              <h4 className="text-sm font-semibold mb-3">Menu</h4>
+              <div className="flex flex-wrap gap-4 text-xs text-gray-400">
+                <a href="/" className="hover:text-white transition-colors">Beranda</a>
+                <a href="/products" className="hover:text-white transition-colors">Produk</a>
+                <a href="#master-kuliner" className="hover:text-white transition-colors">Tentang</a>
               </div>
             </div>
           </div>
@@ -103,20 +87,17 @@ const Footer = () => {
 
       {/* Bottom Footer */}
       <div className="border-t border-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex flex-col sm:flex-row justify-between items-center space-y-3 sm:space-y-0">
             <p className="text-gray-400 text-center sm:text-left text-xs sm:text-sm">
               © 2025 Maha Niaga Artha. All rights reserved.
             </p>
-            <div className="flex flex-wrap justify-center space-x-4 sm:space-x-6">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200 text-xs sm:text-sm">
-                Privacy Policy
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200 text-xs sm:text-sm">
-                Terms of Service
-              </a>
+            <div className="flex flex-wrap justify-center space-x-4">
               <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200 text-xs sm:text-sm">
                 Syarat & Ketentuan
+              </a>
+              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200 text-xs sm:text-sm">
+                Kebijakan Privasi
               </a>
             </div>
           </div>

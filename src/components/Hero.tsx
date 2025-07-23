@@ -20,11 +20,17 @@ const Hero = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="bg-purple-primary text-white px-4 py-3 sm:px-6 sm:py-3 md:px-8 md:py-4 rounded-full hover:bg-purple-700 transition-all duration-300 font-semibold text-sm sm:text-base md:text-lg flex items-center justify-center group">
+              <button 
+                onClick={() => document.getElementById('featured-products')?.scrollIntoView({ behavior: 'smooth' })}
+                className="bg-purple-primary text-white px-4 py-3 sm:px-6 sm:py-3 md:px-8 md:py-4 rounded-full hover:bg-purple-700 transition-all duration-300 font-semibold text-sm sm:text-base md:text-lg flex items-center justify-center group"
+              >
                 Lihat Produk Unggulan
                 <ArrowRight className="ml-1 sm:ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
               </button>
-              <button className="border-2 border-purple-primary text-purple-primary px-4 py-3 sm:px-6 sm:py-3 md:px-8 md:py-4 rounded-full hover:bg-purple-primary hover:text-white transition-all duration-300 font-semibold text-sm sm:text-base md:text-lg flex items-center justify-center">
+              <button 
+                onClick={() => window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank')}
+                className="border-2 border-purple-primary text-purple-primary px-4 py-3 sm:px-6 sm:py-3 md:px-8 md:py-4 rounded-full hover:bg-purple-primary hover:text-white transition-all duration-300 font-semibold text-sm sm:text-base md:text-lg flex items-center justify-center"
+              >
                 <Play className="mr-1 sm:mr-2 w-4 h-4 sm:w-5 sm:h-5" />
                 Lihat Demo
               </button>
