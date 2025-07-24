@@ -66,7 +66,7 @@ const Hero = () => {
           <div className="relative animate-float lg:block">
             <div className="relative w-full h-64 sm:h-80 md:h-96 lg:h-[500px]">
               <img 
-                src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                src="https://h2rsi9anqnqbkvkf.public.blob.vercel-storage.com/Feed%20IG%20Mie%20Kekinian%20-%2023-SHXuxauASxUbVVRqnL4yeXiVhoShxd.jpg" 
                 alt="Booth Usaha Modern" 
                 className="w-full h-full object-cover rounded-3xl shadow-2xl"
               />
