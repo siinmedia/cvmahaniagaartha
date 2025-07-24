@@ -24,7 +24,7 @@ const FeaturedProducts = () => {
     {
       name: 'Mybestea',
       price: 'Rp 2.5 Juta',
-      image: 'https://images.pexels.com/photos/1346155/pexels-photo-1346155.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: 'https://h2rsi9anqnqbkvkf.public.blob.vercel-storage.com/Feed%20IG%20Mie%20Kekinian%20-%2050-wd5wEOd5VAp3yg73Qnjxwy4mpWCwBr.jpg',
       heroImage: 'https://images.pexels.com/photos/1346155/pexels-photo-1346155.jpeg?auto=compress&cs=tinysrgb&w=1200',
       category: 'Minuman',
       rating: 4.9,
