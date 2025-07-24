@@ -24,7 +24,7 @@ const FeaturedProducts = () => {
     {
       name: 'Mybestea',
       price: 'Rp 2.5 Juta',
-      image: 'wp-content/My Bestea (3).jpeg',
+      image: '/wp-content/My Bestea (3).jpeg',
       heroImage: 'https://images.pexels.com/photos/1346155/pexels-photo-1346155.jpeg?auto=compress&cs=tinysrgb&w=1200',
       category: 'Minuman',
       rating: 4.9,
