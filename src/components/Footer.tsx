@@ -10,9 +10,11 @@ const Footer = () => {
           {/* Company Info */}
           <div className="lg:col-span-1">
             <div className="flex items-center space-x-3 mb-6">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-purple-primary to-purple-600 rounded-lg flex items-center justify-center">
-                <ShoppingBag className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white" />
-              </div>
+              <img 
+                src="https://h2rsi9anqnqbkvkf.public.blob.vercel-storage.com/Logo%20CV-mmdAi4oFQkXe42KI9mxLUZeTj1GxxB.png" 
+                alt="Maha Niaga Artha" 
+                className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
+              />
               <span className="text-lg sm:text-xl md:text-2xl font-bold">Maha Niaga Artha</span>
             </div>
             <p className="text-sm sm:text-base text-gray-400 leading-relaxed mb-6">
@@ -42,15 +44,15 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-start space-x-3">
                 <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-purple-primary flex-shrink-0 mt-0.5" />
-                <span className="text-xs sm:text-sm md:text-base text-gray-400">Jl. Merdeka No. 123, Jakarta Pusat 10110</span>
+                <span className="text-xs sm:text-sm md:text-base text-gray-400">Perumahan Kuwasen, Jepara, Jawa Tengah</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-purple-primary flex-shrink-0" />
-                <span className="text-xs sm:text-sm md:text-base text-gray-400">+62 812-3456-7890</span>
+                <span className="text-xs sm:text-sm md:text-base text-gray-400">6282124952606</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-purple-primary flex-shrink-0" />
-                <span className="text-xs sm:text-sm md:text-base text-gray-400">info@mahaniagaartha.com</span>
+                <span className="text-xs sm:text-sm md:text-base text-gray-400">franchisewaralaba@gmail.com</span>
               </div>
             </div>
           </div>
@@ -63,9 +65,9 @@ const Footer = () => {
             </p>
             <button 
               onClick={() => {
-                const phoneNumber = '6281234567890';
-                const message = encodeURIComponent('Halo, saya ingin konsultasi untuk memilih paket usaha yang tepat.');
-                window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+                const admin = { number: '6282124952606', name: 'Admin Livia' };
+                const message = encodeURIComponent(`Halo ${admin.name}, saya ingin konsultasi untuk memilih paket usaha yang tepat.`);
+                window.open(`https://wa.me/${admin.number}?text=${message}`, '_blank');
               }}
               className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 sm:px-6 sm:py-3 rounded-full transition-all duration-300 font-semibold text-xs sm:text-sm flex items-center"
             >

@@ -1,5 +1,6 @@
 import React from 'react';
 import { MessageCircle, Phone, Mail } from 'lucide-react';
+import { openWhatsAppWithMessage } from '../utils/adminUtils';
 
 const CTASection = () => {
   return (
@@ -19,18 +20,27 @@ const CTASection = () => {
 
             {/* CTA Buttons */}
             <div className="space-y-3 sm:space-y-4">
-              <button className="w-full sm:w-auto bg-white text-purple-primary px-4 py-3 sm:px-6 sm:py-3 md:px-8 md:py-4 rounded-full hover:bg-gray-100 transition-all duration-300 font-semibold text-sm sm:text-base md:text-lg flex items-center justify-center group">
+              <button 
+                onClick={() => openWhatsAppWithMessage('saya ingin konsultasi untuk memilih paket usaha yang tepat.')}
+                className="w-full sm:w-auto bg-white text-purple-primary px-4 py-3 sm:px-6 sm:py-3 md:px-8 md:py-4 rounded-full hover:bg-gray-100 transition-all duration-300 font-semibold text-sm sm:text-base md:text-lg flex items-center justify-center group"
+              >
                 <MessageCircle className="mr-2 sm:mr-3 w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
                 Konsultasi Gratis via WhatsApp
                 <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
               </button>
               
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                <button className="flex-1 border-2 border-white text-white px-3 py-2 sm:px-4 sm:py-2 md:px-6 md:py-3 rounded-full hover:bg-white hover:text-purple-primary transition-all duration-300 font-semibold text-xs sm:text-sm md:text-base flex items-center justify-center">
+                <button 
+                  onClick={() => window.open('tel:6282124952606', '_self')}
+                  className="flex-1 border-2 border-white text-white px-3 py-2 sm:px-4 sm:py-2 md:px-6 md:py-3 rounded-full hover:bg-white hover:text-purple-primary transition-all duration-300 font-semibold text-xs sm:text-sm md:text-base flex items-center justify-center"
+                >
                   <Phone className="mr-1 sm:mr-2 w-4 h-4 sm:w-5 sm:h-5" />
                   Telepon Langsung
                 </button>
-                <button className="flex-1 border-2 border-white text-white px-3 py-2 sm:px-4 sm:py-2 md:px-6 md:py-3 rounded-full hover:bg-white hover:text-purple-primary transition-all duration-300 font-semibold text-xs sm:text-sm md:text-base flex items-center justify-center">
+                <button 
+                  onClick={() => window.open('mailto:franchisewaralaba@gmail.com', '_self')}
+                  className="flex-1 border-2 border-white text-white px-3 py-2 sm:px-4 sm:py-2 md:px-6 md:py-3 rounded-full hover:bg-white hover:text-purple-primary transition-all duration-300 font-semibold text-xs sm:text-sm md:text-base flex items-center justify-center"
+                >
                   <Mail className="mr-1 sm:mr-2 w-4 h-4 sm:w-5 sm:h-5" />
                   Email Kami
                 </button>
@@ -41,8 +51,8 @@ const CTASection = () => {
             <div className="border-t border-purple-400 pt-4 sm:pt-6 space-y-2">
               <p className="text-purple-200 text-xs sm:text-sm">Atau hubungi kami langsung:</p>
               <div className="flex flex-col sm:flex-row sm:space-x-8 space-y-2 sm:space-y-0">
-                <span className="text-white font-semibold text-sm sm:text-base">📱 +62 812-3456-7890</span>
-                <span className="text-white font-semibold text-sm sm:text-base">✉️ info@mahaniagaartha.com</span>
+                <span className="text-white font-semibold text-sm sm:text-base">📱 6282124952606</span>
+                <span className="text-white font-semibold text-sm sm:text-base">✉️ franchisewaralaba@gmail.com</span>
               </div>
             </div>
           </div>

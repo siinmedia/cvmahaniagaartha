@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Star, X, Package, Users, TrendingUp, MessageCircle } from 'lucide-react';
+import { openWhatsAppWithRandomAdmin } from '../utils/adminUtils';
 
 interface Product {
   name: string;
@@ -14,7 +15,6 @@ interface Product {
   includes: string[];
   targetMarket: string;
   estimatedRevenue: string;
-  whatsappMessage: string;
 }
 
 const FeaturedProducts = () => {
@@ -33,7 +33,6 @@ const FeaturedProducts = () => {
       includes: ['Booth 2x2 meter', 'Peralatan lengkap', 'Bahan baku 1 bulan', 'Training barista', 'Marketing kit'],
       targetMarket: 'Mahasiswa, pekerja kantoran, pengunjung mall',
       estimatedRevenue: 'Rp 8-15 juta/bulan',
-      whatsappMessage: 'Halo, saya tertarik dengan paket usaha Mybestea. Bisa minta info lengkapnya?'
     },
     {
       name: 'You Need Mie',
@@ -47,7 +46,6 @@ const FeaturedProducts = () => {
       includes: ['Booth 2.5x2.5 meter', 'Kompor gas + tabung', 'Peralatan masak', 'Bahan baku 1 bulan', 'SOP lengkap'],
       targetMarket: 'Semua kalangan, terutama anak muda dan keluarga',
       estimatedRevenue: 'Rp 10-18 juta/bulan',
-      whatsappMessage: 'Halo, saya ingin tahu lebih detail tentang franchise You Need Mie. Mohon infonya.'
     },
     {
       name: 'Kopi Ibukota',
@@ -61,7 +59,6 @@ const FeaturedProducts = () => {
       includes: ['Booth 3x3 meter', 'Mesin espresso', 'Grinder profesional', 'Bahan baku 2 bulan', 'Training barista'],
       targetMarket: 'Coffee lovers, pekerja kantoran, mahasiswa',
       estimatedRevenue: 'Rp 15-25 juta/bulan',
-      whatsappMessage: 'Halo, saya ingin memulai bisnis kopi dengan paket Kopi Ibukota. Mohon info lengkapnya.'
     },
     {
       name: 'Kentang Gantenk',
@@ -75,15 +72,8 @@ const FeaturedProducts = () => {
       includes: ['Booth portable', 'Deep fryer', 'Peralatan masak', 'Bahan baku 1 bulan', 'Resep bumbu'],
       targetMarket: 'Anak muda, mahasiswa, keluarga',
       estimatedRevenue: 'Rp 8-14 juta/bulan',
-      whatsappMessage: 'Halo, saya ingin memulai usaha Kentang Gantenk. Mohon info paket lengkapnya.'
     }
   ];
-
-  const openWhatsApp = (message: string) => {
-    const phoneNumber = '6281234567890'; // Replace with actual WhatsApp number
-    const encodedMessage = encodeURIComponent(message);
-    window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
-  };
 
   const openProductDetail = (product: Product) => {
     setSelectedProduct(product);
@@ -161,11 +151,11 @@ const FeaturedProducts = () => {
                     </div>
 
                     <button 
-                      onClick={() => openProductDetail(product)}
-                      className="bg-white/10 backdrop-blur-sm border border-white/30 text-white px-3 py-2 sm:px-4 sm:py-2 md:px-6 md:py-3 rounded-full hover:bg-white hover:text-purple-primary transition-all duration-300 font-semibold flex items-center group-hover:scale-105 text-xs sm:text-sm md:text-base"
+                      onClick={() => openWhatsAppWithRandomAdmin(product.name)}
+                      className="bg-green-500 hover:bg-green-600 text-white px-3 py-2 sm:px-4 sm:py-2 md:px-6 md:py-3 rounded-full transition-all duration-300 font-semibold flex items-center group-hover:scale-105 text-xs sm:text-sm md:text-base"
                     >
-                      Lihat Detailnya
-                      <ArrowRight className="ml-1 w-3 h-3 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />
+                      <MessageCircle className="mr-1 w-3 h-3 sm:w-4 sm:h-4" />
+                      WhatsApp
                     </button>
                   </div>
                 </div>
@@ -270,7 +260,7 @@ const FeaturedProducts = () => {
                     </div>
                     
                     <button
-                      onClick={() => openWhatsApp(selectedProduct.whatsappMessage)}
+                      onClick={() => openWhatsAppWithRandomAdmin(selectedProduct.name)}
                       className="w-full bg-green-500 hover:bg-green-600 text-white px-3 py-2 sm:px-4 sm:py-3 md:px-6 md:py-4 rounded-full transition-all duration-300 font-semibold text-xs sm:text-sm md:text-base flex items-center justify-center"
                     >
                       <MessageCircle className="mr-1 sm:mr-2 w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5" />

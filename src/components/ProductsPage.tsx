@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowLeft, MessageCircle, Star, Package, Users, TrendingUp, X } from 'lucide-react';
+import { openWhatsAppWithRandomAdmin, openWhatsAppWithMessage } from '../utils/adminUtils';
 
 interface Product {
   id: string;
@@ -14,7 +15,6 @@ interface Product {
   includes: string[];
   targetMarket: string;
   estimatedRevenue: string;
-  whatsappMessage: string;
 }
 
 const ProductsPage = () => {
@@ -34,7 +34,6 @@ const ProductsPage = () => {
       includes: ['Booth 2x2 meter', 'Peralatan lengkap', 'Bahan baku 1 bulan', 'Training barista', 'Marketing kit'],
       targetMarket: 'Mahasiswa, pekerja kantoran, pengunjung mall',
       estimatedRevenue: 'Rp 8-15 juta/bulan',
-      whatsappMessage: 'Halo, saya tertarik dengan paket usaha Mybestea. Bisa minta info lengkapnya?'
     },
     {
       id: 'you-need-mie',
@@ -49,7 +48,6 @@ const ProductsPage = () => {
       includes: ['Booth 2.5x2.5 meter', 'Kompor gas + tabung', 'Peralatan masak', 'Bahan baku 1 bulan', 'SOP lengkap'],
       targetMarket: 'Semua kalangan, terutama anak muda dan keluarga',
       estimatedRevenue: 'Rp 10-18 juta/bulan',
-      whatsappMessage: 'Halo, saya ingin tahu lebih detail tentang franchise You Need Mie. Mohon infonya.'
     },
     {
       id: 'mentoast',
@@ -64,7 +62,6 @@ const ProductsPage = () => {
       includes: ['Booth portable', 'Pemanggang roti', 'Peralatan lengkap', 'Bahan baku starter', 'Resep rahasia'],
       targetMarket: 'Pekerja, mahasiswa, keluarga',
       estimatedRevenue: 'Rp 7-12 juta/bulan',
-      whatsappMessage: 'Halo, saya tertarik dengan paket usaha Mentoast. Bisa dijelaskan lebih detail?'
     },
     {
       id: 'kopi-ibukota',
@@ -79,7 +76,6 @@ const ProductsPage = () => {
       includes: ['Booth 3x3 meter', 'Mesin espresso', 'Grinder profesional', 'Bahan baku 2 bulan', 'Training barista'],
       targetMarket: 'Coffee lovers, pekerja kantoran, mahasiswa',
       estimatedRevenue: 'Rp 15-25 juta/bulan',
-      whatsappMessage: 'Halo, saya ingin memulai bisnis kopi dengan paket Kopi Ibukota. Mohon info lengkapnya.'
     },
     {
       id: 'esteh-ibukota',
@@ -94,7 +90,6 @@ const ProductsPage = () => {
       includes: ['Booth 2x2 meter', 'Dispenser es', 'Shaker set', 'Bahan baku 1 bulan', 'Resep lengkap'],
       targetMarket: 'Semua kalangan, terutama remaja dan dewasa muda',
       estimatedRevenue: 'Rp 6-10 juta/bulan',
-      whatsappMessage: 'Halo, saya tertarik dengan bisnis Esteh Ibukota. Bisa minta penjelasan detailnya?'
     },
     {
       id: 'kentang-gantenk',
@@ -109,7 +104,6 @@ const ProductsPage = () => {
       includes: ['Booth portable', 'Deep fryer', 'Peralatan masak', 'Bahan baku 1 bulan', 'Resep bumbu'],
       targetMarket: 'Anak muda, mahasiswa, keluarga',
       estimatedRevenue: 'Rp 8-14 juta/bulan',
-      whatsappMessage: 'Halo, saya ingin memulai usaha Kentang Gantenk. Mohon info paket lengkapnya.'
     },
     {
       id: 'raja-steak',
@@ -124,7 +118,6 @@ const ProductsPage = () => {
       includes: ['Booth 3x3 meter', 'Grill pan set', 'Peralatan masak', 'Bahan baku 1 bulan', 'Training chef'],
       targetMarket: 'Keluarga, pasangan, food enthusiast',
       estimatedRevenue: 'Rp 18-30 juta/bulan',
-      whatsappMessage: 'Halo, saya tertarik dengan franchise Raja Steak. Bisa minta info investasi dan keuntungannya?'
     },
     {
       id: 'nice-coffee',
@@ -139,7 +132,6 @@ const ProductsPage = () => {
       includes: ['Booth 2.5x2.5 meter', 'Mesin kopi', 'Furniture set', 'Bahan baku 1.5 bulan', 'Marketing support'],
       targetMarket: 'Milenial, pekerja, mahasiswa',
       estimatedRevenue: 'Rp 12-20 juta/bulan',
-      whatsappMessage: 'Halo, saya ingin tahu lebih detail tentang paket Nice Coffee. Mohon penjelasannya.'
     },
     {
       id: 'seblak-express',
@@ -154,7 +146,6 @@ const ProductsPage = () => {
       includes: ['Booth 2x2 meter', 'Kompor gas', 'Peralatan masak', 'Bahan baku 1 bulan', 'Resep bumbu'],
       targetMarket: 'Pecinta pedas, mahasiswa, anak muda',
       estimatedRevenue: 'Rp 7-13 juta/bulan',
-      whatsappMessage: 'Halo, saya tertarik dengan usaha Seblak Express. Bisa dijelaskan paket lengkapnya?'
     },
     {
       id: 'chick-ichick',
@@ -169,7 +160,6 @@ const ProductsPage = () => {
       includes: ['Booth 2.5x2.5 meter', 'Deep fryer', 'Peralatan lengkap', 'Bahan baku 1 bulan', 'Training masak'],
       targetMarket: 'Anak muda, keluarga, K-food lovers',
       estimatedRevenue: 'Rp 14-22 juta/bulan',
-      whatsappMessage: 'Halo, saya ingin memulai bisnis Chick Ichick. Mohon info detail paketnya.'
     },
     {
       id: 'merlumer',
@@ -184,7 +174,6 @@ const ProductsPage = () => {
       includes: ['Booth 2.5x2.5 meter', 'Kompor gas', 'Peralatan masak', 'Bahan baku 1 bulan', 'Resep rahasia'],
       targetMarket: 'Semua kalangan, pecinta mie ayam',
       estimatedRevenue: 'Rp 11-17 juta/bulan',
-      whatsappMessage: 'Halo, saya tertarik dengan franchise Merlumer. Bisa minta info lengkap paketnya?'
     },
     {
       id: 'chickuruyuk',
@@ -199,7 +188,6 @@ const ProductsPage = () => {
       includes: ['Booth 2.5x2.5 meter', 'Peralatan masak', 'Cobek batu', 'Bahan baku 1 bulan', 'SOP lengkap'],
       targetMarket: 'Pecinta pedas, mahasiswa, pekerja',
       estimatedRevenue: 'Rp 13-19 juta/bulan',
-      whatsappMessage: 'Halo, saya ingin memulai usaha Chickuruyuk. Mohon info detail investasi dan keuntungannya.'
     },
     {
       id: 'tahu-nyonyor',
@@ -214,19 +202,8 @@ const ProductsPage = () => {
       includes: ['Booth portable', 'Deep fryer mini', 'Peralatan masak', 'Bahan baku 1 bulan', 'Resep bumbu'],
       targetMarket: 'Semua kalangan, pecinta makanan sehat',
       estimatedRevenue: 'Rp 6-11 juta/bulan',
-      whatsappMessage: 'Halo, saya tertarik dengan paket usaha Tahu Nyonyor. Bisa dijelaskan lebih detail?'
     }
   ];
-
-  const openWhatsApp = (message: string) => {
-    const phoneNumber = '6281234567890'; // Replace with actual WhatsApp number
-    const encodedMessage = encodeURIComponent(message);
-    window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
-  };
-
-  const openProductDetail = (product: Product) => {
-    setSelectedProduct(product);
-  };
 
   const closeProductDetail = () => {
     setSelectedProduct(null);
@@ -261,7 +238,7 @@ const ProductsPage = () => {
               Lihat Semua Produk
             </button>
             <button 
-              onClick={() => openWhatsApp('Halo, saya ingin konsultasi untuk memilih paket usaha yang tepat.')}
+              onClick={() => openWhatsAppWithMessage('saya ingin konsultasi untuk memilih paket usaha yang tepat.')}
               className="border-2 border-white text-white px-4 py-3 sm:px-6 sm:py-3 md:px-8 md:py-4 rounded-full hover:bg-white hover:text-purple-primary transition-all duration-300 font-semibold text-sm sm:text-base md:text-lg flex items-center justify-center"
             >
               <MessageCircle className="mr-1 sm:mr-2 w-4 h-4 sm:w-5 sm:h-5" />
@@ -289,7 +266,7 @@ const ProductsPage = () => {
                 key={product.id}
                 className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer animate-slide-up"
                 style={{ animationDelay: `${index * 100}ms` }}
-                onClick={() => openProductDetail(product)}
+                onClick={() => window.location.href = '#'}
               >
                 {/* Product Image */}
                 <div className="relative h-64 sm:h-72 md:h-80">
@@ -340,7 +317,7 @@ const ProductsPage = () => {
                       <button 
                         onClick={(e) => {
                           e.stopPropagation();
-                          openWhatsApp(product.whatsappMessage);
+                         openWhatsAppWithRandomAdmin(product.name);
                         }}
                         className="bg-green-500 hover:bg-green-600 text-white px-2 py-1 sm:px-3 sm:py-2 md:px-4 md:py-2 rounded-full transition-all duration-300 font-semibold flex items-center text-xs sm:text-sm"
                       >
@@ -441,7 +418,7 @@ const ProductsPage = () => {
                     </div>
                     
                     <button
-                      onClick={() => openWhatsApp(selectedProduct.whatsappMessage)}
+                      onClick={() => openWhatsAppWithRandomAdmin(selectedProduct.name)}
                       className="w-full bg-green-500 hover:bg-green-600 text-white px-3 py-2 sm:px-4 sm:py-3 md:px-6 md:py-4 rounded-full transition-all duration-300 font-semibold text-xs sm:text-sm md:text-base flex items-center justify-center"
                     >
                       <MessageCircle className="mr-1 sm:mr-2 w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5" />

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ShoppingBag } from 'lucide-react';
+import { openWhatsAppWithMessage } from '../utils/adminUtils';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -31,9 +32,11 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex items-center space-x-2">
             <Link to="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-purple-primary to-purple-600 rounded-lg flex items-center justify-center">
-              <ShoppingBag className="w-5 h-5 text-white" />
-            </div>
+            <img 
+              src="https://h2rsi9anqnqbkvkf.public.blob.vercel-storage.com/Logo%20CV-mmdAi4oFQkXe42KI9mxLUZeTj1GxxB.png" 
+              alt="Maha Niaga Artha" 
+              className="w-8 h-8 object-contain"
+            />
             <span className="text-xl font-bold text-purple-primary">Maha Niaga Artha</span>
             </Link>
           </div>
@@ -51,7 +54,10 @@ const Navbar = () => {
                 {item.name}
               </Link>
             ))}
-            <button className="bg-purple-primary text-white px-4 py-2 rounded-full hover:bg-purple-700 transition-colors duration-200 font-medium text-sm">
+            <button 
+              onClick={() => openWhatsAppWithMessage('saya ingin konsultasi untuk memilih paket usaha yang tepat.')}
+              className="bg-purple-primary text-white px-4 py-2 rounded-full hover:bg-purple-700 transition-colors duration-200 font-medium text-sm"
+            >
               Konsultasi Gratis
             </button>
           </div>
@@ -83,7 +89,10 @@ const Navbar = () => {
                   {item.name}
                 </Link>
               ))}
-              <button className="w-full bg-purple-primary text-white px-4 py-3 rounded-full hover:bg-purple-700 transition-colors duration-200 font-medium text-sm">
+              <button 
+                onClick={() => openWhatsAppWithMessage('saya ingin konsultasi untuk memilih paket usaha yang tepat.')}
+                className="w-full bg-purple-primary text-white px-4 py-3 rounded-full hover:bg-purple-700 transition-colors duration-200 font-medium text-sm"
+              >
                 Konsultasi Gratis
               </button>
             </div>
