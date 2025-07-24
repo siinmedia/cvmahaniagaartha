@@ -80,8 +80,8 @@ const Hero = () => {
                       <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-white text-sm sm:text-base md:text-lg">Booth Modern</h3>
-                      <p className="text-xs sm:text-sm text-white/80">Design menarik & profesional</p>
+                      <h3 className="font-semibold text-white text-sm sm:text-base md:text-lg">Tanpa Fee</h3>
+                      <p className="text-xs sm:text-sm text-white/80">Buka Usaha Tanpa Bagi Hasil dengan Keuntungan Melimpah</p>
                     </div>
                   </div>
                   <div className="flex justify-between items-center">
