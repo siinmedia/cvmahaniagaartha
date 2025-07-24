@@ -50,7 +50,7 @@ const FeaturedProducts = () => {
     {
       name: 'Kopi Ibukota',
       price: 'Rp 4.5 Juta',
-      image: 'https://raw.githubusercontent.com/jafabogaartha/assets/refs/heads/main/Nice%20Coffee%20(2).jpeg',
+      image: 'https://h2rsi9anqnqbkvkf.public.blob.vercel-storage.com/Feed%20IG%20Kopi%20Ibukota%2001-6hsTUjyPGxMNOUJM8fGZpBsdIoXROk.jpg',
       heroImage: 'https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&cs=tinysrgb&w=1200',
       category: 'Minuman',
       rating: 4.9,
@@ -63,7 +63,7 @@ const FeaturedProducts = () => {
     {
       name: 'Kentang Gantenk',
       price: 'Rp 2.8 Juta',
-      image: 'https://images.pexels.com/photos/1583884/pexels-photo-1583884.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: 'https://h2rsi9anqnqbkvkf.public.blob.vercel-storage.com/Desain%20Feed%20IG%20kentang%20ganteng%2020-kTMeVviLWJHbkfQK0juIinGYo5mopG.jpg',
       heroImage: 'https://images.pexels.com/photos/1583884/pexels-photo-1583884.jpeg?auto=compress&cs=tinysrgb&w=1200',
       category: 'Snack',
       rating: 4.7,
