@@ -38,7 +38,7 @@ const FeaturedProducts = () => {
     {
       name: 'You Need Mie',
       price: 'Rp 3.2 Juta',
-      image: 'https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?auto=compress&cs=tinysrgb&w=800',
+      image: 'https://h2rsi9anqnqbkvkf.public.blob.vercel-storage.com/Paket%20Kontainer%20You%20Need%20Mie-ctM11p4BnI0iik6FpopCXijtxaminh.jpg',
       heroImage: 'https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?auto=compress&cs=tinysrgb&w=1200',
       category: 'Makanan',
       rating: 4.8,
