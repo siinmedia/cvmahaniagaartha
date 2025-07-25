@@ -15,7 +15,7 @@ const Hero = () => {
               </h1>
               <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl">
                 Paket usaha siap jalan lengkap dengan booth, bahan awal, dan branding menarik. 
-                Mulai dari Rp 2 jutaan saja!
+                Mulai dari Rp 2 jutaan saja
               </p>
             </div>
 
